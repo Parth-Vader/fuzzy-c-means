@@ -14,7 +14,7 @@ def change_color_fuzzycmeans(cluster_membership, clusters):
     return img
 
 def readimage():
-    folder = 'image-cancer/'
+    folder = 'image/'
     list_images = os.listdir(folder)
     list_img = []
     for i in list_images:
@@ -58,7 +58,7 @@ def imclearborder(imgBW):
     # Given a black and white image, first find all of its contours
     radius = 2
     imgBWcopy = imgBW.copy()
-    image, contours,hierarchy = cv2.findContours(imgBWcopy.copy(), cv2.RETR_LIST, 
+    contours,hierarchy = cv2.findContours(imgBWcopy.copy(), cv2.RETR_LIST, 
         cv2.CHAIN_APPROX_SIMPLE)
 
     # Get dimensions of image
@@ -95,7 +95,7 @@ def imclearborder(imgBW):
 def bwareaopen(imgBW, areaPixels):
     # Given a black and white image, first find all of its contours
     imgBWcopy = imgBW.copy()
-    image, contours,hierarchy = cv2.findContours(imgBWcopy.copy(), cv2.RETR_LIST, 
+    contours,hierarchy = cv2.findContours(imgBWcopy.copy(), cv2.RETR_LIST, 
         cv2.CHAIN_APPROX_SIMPLE)
 
     # For each contour, determine its total occupying area
